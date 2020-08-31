@@ -41,7 +41,7 @@ object AddressBookMain extends App {
             println("Unknown phone type. Leaving as None.")
             None
         }
-        Some(Person.PhoneNumber(number = number, `type` = typ))
+        Some(Person.PhoneNumber(number = number, `type` = typ.get))
       } else None
     }
 
@@ -56,7 +56,7 @@ object AddressBookMain extends App {
     Person(
       id = id,
       name = name,
-      email = if (email.nonEmpty) Some(email) else None,
+      email = if (email.nonEmpty) email else "",
       phones = phones
     )
   }
